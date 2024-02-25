@@ -4,10 +4,11 @@ This is a web application that utilizes a library called three.js to create visu
 
 ## Project Structure
 
-- `added.css`: Additional CSS styles for the project.
 - `font/`: Contains font files used in the project.
-- `index.html`: The main HTML file that displays the output of the project.
+- `doc/`: Theorical background
 - `lib/`: Contains the Three.js library files and controls used in the project.
+- `index.html`: The main HTML file that displays the output of the project.
+- `added.css`: Additional CSS styles for the project.
 - `main.css`: The main CSS file for styling the project.
 - `main.js`: The main JavaScript file where the Three.js code resides.
 
