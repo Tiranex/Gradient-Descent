@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<title>three.js webgl - interactive - raycasting - points</title>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+		<link type="text/css" rel="stylesheet" href="main.css">
+		<link type="text/css" rel="stylesheet" href="added.css">
+	</head>
+
+	<body>
+		<div id="info"><h1>Given a point the graph shows the gradient descent path it follows</h1></div>
+
+
+		<div id ="controls">
+			<button id="controltitle">Controls</button>
+			<div id="children">
+				<button id="set_point_button">Set Point in Mesh</button>
+				<div id="select_button">
+					<button value="1" class="control_button" >1</button>
+					<button value="0" class="control_button" >2</button>
+					<button value="2" class="control_button" >3</button>
+					<button value="3" class="control_button" >4</button>
+					<button value="4" class="control_button" >5</button>
+				</div>
+			</div>
+		
+			<div></div>
+		</div>
+
+
+		<div id="container"></div>
+			
+		
+		<script type="importmap">
+			{
+				"imports": {
+					"three": "./lib/three.module.js"
+				}
+			}
+		</script>
+        
+		<script type="module" src="main.js"></script>
+
+	</body>
+
+</html>

@@ -1,0 +1,31 @@
+#controls {
+    max-height: 100%;
+    position: fixed;
+    right: 15px;
+    top: 15px;
+    display: flex;
+    flex-direction: column;
+    width: 200px;
+    justify-content: center;
+}
+#controltitle{
+    height: 2rem;
+}
+#set_point_button {
+    margin-top: 5px;
+    width: 100%;
+}
+#select_button{
+    display: flex;
+    margin-top: 5px;
+    justify-content: space-between;
+}
+.control_button{
+    flex-basis: 15%;
+    justify-content: center;
+}
+
+#info {
+    position: fixed;
+    margin-left: 10px;
+}

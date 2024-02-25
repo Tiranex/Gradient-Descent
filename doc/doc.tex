@@ -1,0 +1,110 @@
+% This is a template for students in MATH 3000 at FSU to formally write-up results presented in class. 
+
+% All of this stuff with '%' in front is a comment and ignored by the compiler.
+%
+% The lines before the "\begin{document}" line is called the preamble.
+% This is where you load particular packages you need.
+% Until you are more experienced, or the program says you are missing packages, it is safe to ignore most of the preamble.
+%
+%----------------------------------
+
+\documentclass[12pt]{article}
+\usepackage[margin=1in]{geometry}% Change the margins here if you wish.
+\setlength{\parindent}{0pt} % This is the set the indent length for new paragraphs, change if you want.
+\setlength{\parskip}{5pt} % This sets the distance between paragraphs, which will be used anytime you have a blank line in your LaTeX code.
+\pagenumbering{gobble}% This means the page will not be numbered. You can comment it out if you like page numbers.
+
+%------------------------------------
+
+% These packages allow the most of the common "mathly things"
+\usepackage{amsmath,amsthm,amssymb}
+
+% This package allows you to add images.
+\usepackage{graphicx}
+\usepackage{float}
+\usepackage{hyperref}
+
+% These are theorem environments.  This should cover everything you need, and you should be able to tell what environment goes with what type of result, but please let me know if I've missed anything.
+\newtheorem{euclidtheorem}{Proposition}[section]
+\newtheorem{classtheorem}{Theorem}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{challenge}[theorem]{Challenge}
+\newtheorem{question}[theorem]{Question}
+\newtheorem{problem}[theorem]{Problem}
+
+
+\newtheorem{theorempiece}{Theorem}[theorem]
+\newtheorem{classtheorempiece}{Theorem}[classtheorem]
+\newtheorem{challengepiece}{Challenge}[theorem]
+\newtheorem{questionpiece}{Question}[theorem]
+\newtheorem{problempiece}{Problem}[theorem]
+
+%These help to format the names of the results the way we are in class and in notes.
+\renewcommand*{\theeuclidtheorem}{\Roman{section}.\arabic{theorem}}
+\renewcommand*{\thetheorem}{\arabic{section}.\arabic{theorem}}
+\renewcommand*{\theclasstheorem}{\Alph{theorem}}
+\renewcommand*{\thechallenge}{\arabic{section}.\arabic{theorem}}
+\renewcommand*{\thequestion}{\arabic{section}.\arabic{theorem}}
+\renewcommand*{\theproblem}{\arabic{section}.\arabic{theorem}}
+\renewcommand*{\thetheorempiece}{\arabic{section}.\arabic{theorem}.\alph{theorempiece}}
+\renewcommand*{\thechallengepiece}{\arabic{section}.\arabic{theorem}.\alph{challengepiece}}
+\renewcommand*{\thequestionpiece}{\arabic{section}.\arabic{theorem}.\alph{questionpiece}}
+\renewcommand*{\theproblempiece}{\arabic{section}.\arabic{theorem}.\alph{problempiece}}
+
+%----------------------------------
+
+% Put the name of your paper here. It does not need to be a fancy name, but should tell the reader what is contained in the paper.
+\title{Gradient Descent}
+
+% You are the author, put your name here.
+\author{Reference: \href{https://en.wikipedia.org/wiki/Gradient_descent}{Wikipedia}}
+
+% You can change the date to be something other than the current date if you want.
+
+
+\begin{document}
+
+% Add the title and subtitle
+
+\maketitle
+
+
+Gradient descent is based on the observation that if the multi-variable function $F(\mathbf{x})$ is defined and differentiable in a 
+neighborhood of a point $\mathbf{a}$, then $F(\mathbf{x})$ decreases fastest if one goes from $\mathbf{a}$ in the direction of the 
+negative gradient of $F$ at $\mathbf{a}$, $-\nabla F(\mathbf{a})$. It follows that, if
+
+\[
+\mathbf{a}_{n+1} = \mathbf{a}_n-\gamma\nabla F(\mathbf{a}_n)
+\]
+
+for a small enough step size or learning rate $\gamma \in \mathbb{R}_{+}$, then $F(\mathbf{a_n})\geq F(\mathbf{a_{n+1}})$. 
+In other words, the term $\gamma\nabla F(\mathbf{a})$ is subtracted from $\mathbf{a}$ because we want to move against the gradient, 
+toward the local minimum. With this observation in mind, one starts with a guess $\mathbf{x}_0$ for a local minimum of $F$, and 
+considers the sequence $\mathbf{x}_0, \mathbf{x}_1, \mathbf{x}_2, \ldots$ such that
+
+\[
+\mathbf{x}_{n+1}=\mathbf{x}_n-\gamma_n \nabla F(\mathbf{x}_n),\ n \ge 0.
+\]
+
+We have a monotonic sequence
+
+\[
+F(\mathbf{x}_0)\ge F(\mathbf{x}_1)\ge F(\mathbf{x}_2)\ge \cdots,
+\]
+
+so, hopefully, the sequence $(\mathbf{x}_n)$ converges to the desired local minimum. Note that the value of the step 
+size $\gamma$ is allowed to change at every iteration. 
+
+It is possible to guarantee the convergence to a local minimum under certain assumptions 
+on the function $F$ (for example, $F$ convex and $\nabla F$ Lipschitz) and particular choices of $\gamma$. 
+Those include the sequence
+
+\[
+\gamma_{n} = \frac{ \left | \left (\mathbf x_{n} - \mathbf x_{n-1} \right )^T \left [\nabla F (\mathbf x_{n}) - \nabla F (\mathbf x_{n-1}) \right ] \right |}{\left \|\nabla F(\mathbf{x}_{n}) - \nabla F(\mathbf{x}_{n-1}) \right \|^2}
+\]
+
+as in the Barzilai-Borwein method, or a sequence $\gamma_n$ satisfying the Wolfe conditions (which can be found by using line search). 
+When the function $F$ is convex, all local minima are also global minima, so in this case gradient descent can converge to the 
+global solution.
+
+\end{document}
