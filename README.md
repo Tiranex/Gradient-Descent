@@ -2,6 +2,8 @@
 
 This is a web application that utilizes a library called three.js to create visual representations of multiple mathematical functions. The user can interact with the application by selecting a point, and the app will then generate a path based on the gradient descent algorithm. In other words, it will calculate the steepest descent path to optimize a given function.
 
+https://tiranex.github.io/Gradient-Descent/
+
 ## Project Structure
 
 - `font/`: Contains font files used in the project.
